@@ -1,0 +1,36 @@
+---
+// --- ZONA DE PROPS ---
+// Variables que permiten reutilizar este código para cualquier Lab o entrada.
+const { title, description, tags, link } = Astro.props;
+---
+
+<a href={link} target="_blank" rel="noopener noreferrer" class="block group h-full">
+    <div class="bg-slate-900 border border-slate-800 p-6 rounded-lg hover:border-green-400/50 transition-all hover:shadow-lg hover:shadow-green-900/20 h-full flex flex-col">
+        
+        <div class="flex justify-between items-start mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+            </svg>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-slate-500 group-hover:text-green-400 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+        </div>
+
+        <h3 class="text-xl font-bold text-slate-100 mb-2 group-hover:text-green-400 transition-colors">
+            {title}
+        </h3>
+
+        <p class="text-slate-400 text-sm mb-6 leading-relaxed flex-grow">
+            {description}
+        </p>
+
+        <ul class="flex flex-wrap gap-2 mt-auto">
+            {tags.map((tag) => (
+                <li class="text-xs font-mono text-green-300 bg-green-900/30 px-2 py-1 rounded border border-green-800/40">
+                    {tag}
+                </li>
+            ))}
+        </ul>
+    </div>
+</a>
