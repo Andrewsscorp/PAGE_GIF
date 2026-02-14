@@ -1,22 +1,19 @@
 name: Deploy to GitHub Pages
-
 on:
   push:
-    branches: [main] # Se activa cuando subes cambios a la rama main
-
+    branches: [main] # Asegúrate de que tu rama se llame main
 permissions:
   contents: read
   pages: write
   id-token: write
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository
+      - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install, build, and upload your site
         uses: withastro/action@v3
         with:
-          path: . # Ubicación de tu proyecto Astro
-          node-version: 20 # Versión recomendada para Astro 5
+          path: .
+          node-version: 20
